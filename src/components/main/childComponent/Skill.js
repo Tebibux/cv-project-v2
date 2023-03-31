@@ -6,7 +6,7 @@ class Skill extends Component {
 			<div className="skill">
 				<div className="title">Skill</div>
 				<form >
-					<input type="text" name="userSkill" id="" />
+					<input type="text" name="userSkill"/>
 					<button>+</button>
 				</form>
 			</div>
