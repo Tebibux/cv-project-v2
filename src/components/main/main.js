@@ -1,10 +1,16 @@
 import React, { Component } from "react";
-
+import Profile from "./childComponent/Profile";
+import Education from "./childComponent/Education";
+import Experience from "./childComponent/Experience";
+import Skill from "./childComponent/Skill";
 class Main extends Component {
 	render() {
 		return (
 			<main>
-				<h2>This is main</h2>
+				<Profile />
+				<Education />
+				<Experience />
+				<Skill />
 			</main>
 		);
 	}
