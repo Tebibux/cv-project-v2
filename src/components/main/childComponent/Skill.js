@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Skill extends Component {
 	render() {
 		return (
-			<div>
+			<div className="skill">
 				<div className="title">Skill</div>
 				<form >
 					<input type="text" name="userSkill" id="" />

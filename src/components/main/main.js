@@ -6,7 +6,7 @@ import Skill from "./childComponent/Skill";
 class Main extends Component {
 	render() {
 		return (
-			<main>
+			<main className="main">
 				<Profile />
 				<Education />
 				<Experience />
