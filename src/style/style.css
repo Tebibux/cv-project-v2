@@ -45,7 +45,19 @@
 	grid-template-columns: 2.5fr 1fr;
 }
 .userProfile{
+	display:grid;
+	grid-template-columns: .75fr 1fr;
+	padding: 10px;
+}
+.disc{
 	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	margin: 10px;
+	padding: 10px;
+}
+.disc > input {
+	height: 40%;
 }
 .footer {
 	display: grid;
