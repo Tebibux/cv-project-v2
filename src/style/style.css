@@ -46,8 +46,9 @@
 }
 .userProfile{
 	display:grid;
-	grid-template-columns: .75fr 1fr;
+	grid-template-columns: .5fr 1fr;
 	padding: 10px;
+	margin-left: 20px;
 }
 .disc{
 	display: flex;
