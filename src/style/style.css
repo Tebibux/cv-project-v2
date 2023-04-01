@@ -50,6 +50,10 @@
 	padding: 10px;
 	margin-left: 20px;
 }
+.image{
+	display: grid;
+	place-content: center;
+}
 .disc{
 	display: flex;
 	flex-direction: column;
@@ -59,6 +63,19 @@
 }
 .disc > input {
 	height: 40%;
+	padding: 10px;
+}
+.userAddress > form{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	height: 100%;
+	padding: 10px;
+}
+.userAddress > form > input{
+	height: 100%;
+	margin-top: 5px;
+	padding: 2px;
 }
 .footer {
 	display: grid;
