@@ -7,7 +7,7 @@ class Header extends Component {
 				<h1 className="header-title">
 					Build Your CV
 				</h1>
-				<button className="header-preview">Preview</button>
+				<button className="btn-preview">Preview</button>
 			</header>
 		);
 	}

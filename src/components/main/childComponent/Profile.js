@@ -5,7 +5,8 @@ class Profile extends Component {
 		return (
 			<div className="profile">
 				<div className="userProfile">
-					<input type="file" name="userImage" />
+					<input type="file" name="userImage"
+						accept="image/png, image/gif, image/jpeg" />
 					<input type="text" name="userName" />
 					<input type="text" name="userProfile" />
 				</div>
