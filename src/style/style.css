@@ -19,18 +19,20 @@
 	box-shadow: 0px 5px 16px -2px rgba(0, 0, 0, 0.805);
 	font-size: 1.5rem;
 }
-.header-title{
+
+.header-title {
 	display: grid;
 	place-content: center;
 }
+
 /* preview button @ the header */
-.btn-preview{
+.btn-preview {
 	width: 100%;
 	margin-right: 20px;
 	border: 0;
 }
 
-.main{
+.main {
 	margin: 0 20%;
 	display: grid;
 	grid-template-columns: 1fr;
@@ -39,44 +41,100 @@
 
 }
 
-.profile{
+.profile {
 	display: grid;
 	height: 100%;
 	grid-template-columns: 2.5fr 1fr;
 }
-.userProfile{
-	display:grid;
+
+.userProfile {
+	display: grid;
 	grid-template-columns: .5fr 1fr;
 	padding: 10px;
 	margin-left: 20px;
 }
-.image{
+
+.image {
 	display: grid;
 	place-content: center;
 }
-.disc{
+
+.disc {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 	margin: 10px;
 	padding: 10px;
 }
-.disc > input {
+
+.disc>input {
 	height: 40%;
 	padding: 10px;
+	font-weight: bold;
+	font-size: large;
+	font-family: 'Times New Roman', Times, serif;
 }
-.userAddress > form{
+
+.userAddress>form {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 	height: 100%;
 	padding: 10px;
 }
-.userAddress > form > input{
+
+.userAddress>form>input {
 	height: 100%;
 	margin-top: 5px;
 	padding: 2px;
 }
+
+.userEducation {}
+
+.title {
+	font-weight: bold;
+	margin: 5px;
+	padding-left: 10px;
+}
+
+.educations {
+	font-style: oblique;
+
+}
+
+ul {
+	position: relative;
+	list-style: none;
+	padding-left: 15px;
+}
+
+li::before {
+	padding-left: 10px;
+	content: '▶';
+	position: absolute;
+	left: 0;
+}
+
+li {
+	padding-left: 15px;
+}
+
+.userEducation>form {
+	margin-top: 1rem;
+}
+
+.userEducation>form>input {
+	width: 70%;
+	padding: 10px;
+	margin-left: 1rem;
+}
+
+.userEducation>form>button {
+	margin-left: 10px;
+	height: 100%;
+}
+
+
 .footer {
 	display: grid;
 	place-items: center;
