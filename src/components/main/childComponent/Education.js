@@ -12,8 +12,6 @@ class Education extends Component {
 						Nam beatae numquam, </li>
 					<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
 						Nam beatae numquam, </li>
-					<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-						Nam beatae numquam, </li>
 				</ul>
 				<form >
 					<input type="text" name="education" />
