@@ -122,20 +122,14 @@ li {
 }
 
 .userEducation>form {
-	margin-top: 1rem;
+	margin: 1rem;
+	display: grid;
+	grid-template-columns: 4fr 1fr;
 }
 
 .userEducation>form>input {
-	width: 70%;
-	padding: 10px;
-	margin-left: 1rem;
-}
-
-.userEducation>form>button {
 	margin-left: 10px;
-	/* height: 100%; */
 }
-
 
 .footer {
 	display: grid;
