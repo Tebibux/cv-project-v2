@@ -91,17 +91,42 @@
 	padding: 2px;
 }
 
-.userEducation {}
-
-.title {
-	font-weight: bold;
-	margin: 5px;
-	padding-left: 10px;
+/* user profile ends here */
+.userEducation .user-experience,
+.user-skill {
+	display: grid;
+	grid-template-rows: 1fr 5fr minmax(30px, 50px);
 }
 
-.educations {
+.title {
+	display: grid;
+	place-items: center;
+	font-weight: bold;
+	font-size: larger;
+	margin: 5px;
+}
+
+.educations,
+.Experience,
+.skill {
 	font-family: 'Times New Roman', Times, serif;
 
+}
+
+.user>.user-education-dic,
+.userExperience>.user-experience-dic,
+.userEducation>.user-skill-dic {
+	margin: 1rem;
+	display: grid;
+	grid-template-columns: 4fr 1fr;
+	height: 35px;
+
+}
+
+.user-education-dic>input,
+.user-experience-dic>input,
+.user-skill-dic>input {
+	margin: 0 10px;
 }
 
 ul {
@@ -118,17 +143,22 @@ li::before {
 }
 
 li {
+	margin: 5px;
 	padding-left: 15px;
 }
 
-.userEducation>form {
+.userEducation>.user-education-dic,
+.userExperience>.user-experience-dic,
+.userSkill>.user-skill-dic {
 	margin: 1rem;
 	display: grid;
 	grid-template-columns: 4fr 1fr;
+	height: 35px;
 }
 
-.userEducation>form>input {
-	margin-left: 10px;
+.user-education-dic>input,
+.user-experience-dic>input .user-skill-dic>input {
+	margin: 0 10px;
 }
 
 .footer {

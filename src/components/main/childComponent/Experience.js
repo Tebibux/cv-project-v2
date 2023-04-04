@@ -3,12 +3,16 @@ import React, { Component } from "react";
 class Experience extends Component {
 	render() {
 		return (
-			<div className="Experience">
+			<div className="userExperience">
 				<div className="title">Experience</div>
-				<form >
+				<ul>
+					<li>hey</li>
+					<li>hey</li>
+				</ul>
+				<div className="user-experience-dic" >
 					<input type="text" name="userExperience" />
 					<button>+</button>
-				</form>
+				</div>
 			</div>
 		);
 	}

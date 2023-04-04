@@ -13,10 +13,10 @@ class Education extends Component {
 					<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
 						Nam beatae numquam, </li>						
 				</ul>
-				<form >
+				<div className="user-education-dic" >
 					<input type="text" name="education" />
 					<button className="btn-add">Add</button>
-				</form>
+				</div>
 			</div>
 		);
 	}

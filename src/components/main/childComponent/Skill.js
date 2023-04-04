@@ -3,12 +3,15 @@ import React, { Component } from "react";
 class Skill extends Component {
 	render() {
 		return (
-			<div className="skill">
+			<div className="userSkill">
 				<div className="title">Skill</div>
-				<form >
+				<ul>
+					<li>hi</li>
+				</ul>
+				<div className="user-skill-dic" >
 					<input type="text" name="userSkill"/>
 					<button>+</button>
-				</form>
+				</div>
 			</div>
 		);
 	}
