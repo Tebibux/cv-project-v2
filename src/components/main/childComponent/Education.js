@@ -14,7 +14,7 @@ class Education extends Component {
 						Nam beatae numquam, </li>						
 				</ul>
 				<div className="user-education-dic" >
-					<input type="text" name="education" />
+					<input type="text" name="education" placeholder="Add your Educations here"/>
 					<button className="btn-add">Add</button>
 				</div>
 			</div>

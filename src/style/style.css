@@ -157,8 +157,10 @@ li {
 }
 
 .user-education-dic>input,
-.user-experience-dic>input .user-skill-dic>input {
+.user-experience-dic>input,
+.user-skill-dic>input {
 	margin: 0 10px;
+	padding-left: 5px;
 }
 
 .footer {
