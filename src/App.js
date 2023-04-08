@@ -37,7 +37,7 @@ class App extends Component {
             </div>
           </div>
           {/* profile ends Here */}
-          
+
           {/* Education states here */}
           <div className="userEducation">
             <div className="title">Education</div>
