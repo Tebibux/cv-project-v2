@@ -9,13 +9,9 @@ class App extends Component {
     super();
   };
   previewImage = (e) => {
-    let render = new FileReader();
-    let output = document.getElementById('fileInput');
-    render.onload = function () {
-      // output.style.backgroundImage = render.result;
-    }
-    console.log(output)
-    // render.readAsDataURL(e.target.file)
+    let fileInput = document.getElementById('image-selection');
+    fileInput.style.display = 'none';
+    console.log(fileInput)
   }
   render() {
     return (
@@ -25,8 +21,8 @@ class App extends Component {
           {/* profile starts Here */}
           <div className="profile">
             <div className="userProfile">
-              <div >
-                <label htmlFor="fileInput">
+              <div className="image-div">
+                <label htmlFor="fileInput" id="image-selection">
                   <input type="file" accept=".jpg, .jpeg, .png"
                     name="fileInput" id="fileInput" onChange={this.previewImage} />
                 </label>
