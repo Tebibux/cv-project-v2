@@ -7,8 +7,16 @@ import "./style/style.css";
 class App extends Component {
   constructor() {
     super();
-
   };
+  previewImage = (e) => {
+    let render = new FileReader();
+    let output = document.getElementById('fileInput');
+    render.onload = function () {
+      // output.style.backgroundImage = render.result;
+    }
+    console.log(output)
+    // render.readAsDataURL(e.target.file)
+  }
   render() {
     return (
       <div className="container">
@@ -17,9 +25,12 @@ class App extends Component {
           {/* profile starts Here */}
           <div className="profile">
             <div className="userProfile">
-              <div className="image">
-                <input type="file" name="userImage"
-                  accept="image/png, image/gif, image/jpeg" />
+              <div >
+                <label htmlFor="fileInput">
+                  <input type="file" accept=".jpg, .jpeg, .png"
+                    name="fileInput" id="fileInput" onChange={this.previewImage} />
+                </label>
+
                 {/* Add placeholder here for the image */}
               </div>
               <div className="disc">

@@ -56,10 +56,16 @@
 	margin-left: 20px;
 }
 
-.image {
-	display: grid;
-	place-content: center;
+label[for="fileInput"] input[type="file"]{
+	display: none;
 }
+label[for="fileInput"] {
+	background-image: url('/src/asset/download.png');
+	background-size: cover;
+	width: 100%; /* adjust width and height according to your image size */
+	height: 100%;
+	display: block;
+  }
 
 .disc {
 	display: flex;
