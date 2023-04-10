@@ -7,25 +7,15 @@ class Profile extends Component {
 			userImg: null,
 		}
 	};
-	previewImage = (e) => {
-		let fileInput = document.getElementById('image-selection');
-		// eslint-disable-next-line no-lone-blocks
-		fileInput.style.display = 'none'; {/* this disable the image button */ }
-		let imageDisplayBox = document.getElementById('image-div')
-		let reader = new FileReader();
-		reader.onload = () => reader.result;
-		let userImage = document.createElement('img');
-		userImage.src = reader.onload;
-		const canvas = document.createElement("canvas");
-		canvas.width = userImage.width;
-		canvas.height = userImage.height;
-		const context = canvas.getContext('2d');
-		context.drawImage(userImage, 0, 0);
-		
-		console.log(userImage)
-		imageDisplayBox.appendChild(userImage);
-		reader.readAsDataURL(e.target.files[0]);
-
+	previewImage = () => {
+			let fileInput = document.getElementById('image-selection');
+			// Get the selected image
+			fileInput.addEventListener('change', (e) => {
+				const inputtedImage = document.getElementById('fileInput');
+			})	
+			// eslint-disable-next-line no-lone-blocks
+			fileInput.style.display = 'none'; {/* this disable the image button */ }
+				
 	}
 	render() {
 		return (
