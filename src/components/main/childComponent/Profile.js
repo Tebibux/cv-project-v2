@@ -16,6 +16,13 @@ class Profile extends Component {
 		reader.onload = () => reader.result;
 		let userImage = document.createElement('img');
 		userImage.src = reader.onload;
+		const canvas = document.createElement("canvas");
+		canvas.width = userImage.width;
+		canvas.height = userImage.height;
+		const context = canvas.getContext('2d');
+		context.drawImage(userImage, 0, 0);
+		
+		console.log(userImage)
 		imageDisplayBox.appendChild(userImage);
 		reader.readAsDataURL(e.target.files[0]);
 
