@@ -8,13 +8,32 @@ class Profile extends Component {
 		}
 	};
 	previewImage = () => {
-			let fileInput = document.getElementById('image-selection');
+			let fileInput = document.getElementById('fileInput');
+			let imageDiv = document.getElementById('image-div');
+			let label = document.getElementById('image-selection');
 			// Get the selected image
-			fileInput.addEventListener('change', (e) => {
-				const inputtedImage = document.getElementById('fileInput');
-			})	
-			// eslint-disable-next-line no-lone-blocks
-			fileInput.style.display = 'none'; {/* this disable the image button */ }
+			fileInput.addEventListener('change', () => {
+				const imageFile  = fileInput.files[0];
+				if(imageFile){
+					const reader = new FileReader();
+					reader.readAsDataURL(imageFile);
+					reader.onload = () => {
+						const imgData = reader.result;
+						localStorage.setItem('imageData', imgData);
+						const userImage = new Image();
+						userImage.setAttribute('src', imgData);
+						userImage.setAttribute('id', 'userImage')
+						imageDiv.appendChild(userImage);
+						label.style.display = 'none'
+					};
+					reader.onerror = (error) => {
+						console.error('Error: ', error);
+					}
+				} else {
+					console.warn('No file Selected')
+				}
+				
+			})
 				
 	}
 	render() {
@@ -25,7 +44,7 @@ class Profile extends Component {
 					<div id="image-div">
 						<label htmlFor="fileInput" id="image-selection">
 							<input type="file" accept=".jpg, .jpeg, .png"
-								name="fileInput" id="fileInput" onChange={this.previewImage} />
+								name="fileInput" id="fileInput" onClick={this.previewImage}/>
 						</label>
 
 						{/* Add placeholder here for the image */}
@@ -51,55 +70,4 @@ class Profile extends Component {
 }
 
 export default Profile;
-<div className="main">
 
-
-	{/* Education states here */}
-	<div className="userEducation">
-		<div className="title">Education</div>
-		<ul className="educations">
-			<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-				Nam beatae numquam, </li>
-			<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-				Nam beatae numquam, </li>
-			<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-				Nam beatae numquam, </li>
-		</ul>
-		<div className="user-education-dic" >
-			<input type="text" name="education" placeholder="Add your Educations here" />
-			<button className="btn-add">Add</button>
-		</div>
-	</div>
-	{/* education ends Here */}
-
-	{/* experience starts Here */}
-	<div className="userExperience">
-		<div className="title">Experience</div>
-		<ul>
-			<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-				Nam beatae numquam, </li>
-			<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-				Nam beatae numquam, </li>
-		</ul>
-		<div className="user-experience-dic" >
-			<input type="text" name="userExperience" placeholder="Add your Experience here" />
-			<button className="btn-add">Add</button>
-		</div>
-	</div>
-	{/* experience ends Here */}
-	{/* skill starts Here */}
-	<div className="userSkill">
-		<div className="title">Skill</div>
-		<ul>
-			<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-				Nam beatae numquam, </li>
-			<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-				Nam beatae numquam, </li>
-		</ul>
-		<div className="user-skill-dic" >
-			<input type="text" name="userSkill" placeholder="Add your skills here" />
-			<button className="btn-add">Add</button>
-		</div>
-	</div>
-	{/* skill ends Here */}
-</div>

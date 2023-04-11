@@ -59,6 +59,7 @@
 label[for="fileInput"] input[type="file"]{
 	display: none;
 }
+#userImage,
 label[for="fileInput"] {
 	background-image: url('/src/asset/download.png');
 	background-size: cover;
