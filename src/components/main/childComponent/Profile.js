@@ -4,7 +4,7 @@ class Profile extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isInputActive: true,
+			isInputNameActive: true,
 			inputNameValue: '',
 		};
 	};
@@ -39,20 +39,23 @@ class Profile extends Component {
 		})
 
 	}
+	// userName Start
 	// this will reactivate the text area when double click
-	handleDoubleClick = () => {
-		this.setState({ isInputActive: true });
+	handleNameDoubleClick = () => {
+		this.setState({ isInputNameActive: true });
 	}
-	handleBlur = () => {
-		this.setState({ isInputActive: false });
+	handleNameBlur = () => {
+		this.setState({ isInputNameActive: false });
 	}
 	// this will change the input name value to the user input 
 	handleNameChange = (event) => {
 		this.setState({ inputNameValue: event.target.value });
 	}
+	// userName done
+
 
 	render() {
-		const { isInputActive, inputNameValue } = this.state;
+		const { isInputNameActive, inputNameValue } = this.state;
 		return (
 			<div className="profile">
 				{/* profile starts Here */}
@@ -68,17 +71,17 @@ class Profile extends Component {
 					{/* image input ends here */}
 					<div className="disc">
 						{
-							isInputActive ? (
+							isInputNameActive ? (
 								<input type="text" name="userName"
 									placeholder="Your Name" id="userName"
 									value={inputNameValue}
 									onChange={this.handleNameChange}
-									onBlur={this.handleBlur}
+									onBlur={this.handleNameBlur}
 									autoFocus
 								/>
 							) : (
 								<div className="userName"
-									onDoubleClick={this.handleDoubleClick} >
+									onDoubleClick={this.handleNameDoubleClick} >
 									{inputNameValue}
 								</div>
 							)
