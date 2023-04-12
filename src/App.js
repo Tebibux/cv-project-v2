@@ -5,9 +5,9 @@ import Main from "./components/main/main";
 import "./style/style.css";
 
 class App extends Component {
-  constructor() {
-    super();
-  };
+  // constructor() {
+  //   super();
+  // };
   // previewImage = (e) => {
   //   let fileInput = document.getElementById('image-selection');
   //   fileInput.style.display = 'none';

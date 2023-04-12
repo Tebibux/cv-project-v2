@@ -96,7 +96,12 @@ label,
 	font-size: large;
 	font-family: 'Times New Roman', Times, serif;
 }
-
+.userName{
+	padding-left: 1em;
+	font-weight: bold;
+	font-size: 1.75em;
+	font-family: 'Times New Roman', Times, serif;
+}
 .userAddress>form {
 	display: flex;
 	flex-direction: column;

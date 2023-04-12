@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 
 class Profile extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
-			userImg: null,
-		}
+			isInputActive: true,
+			inputNameValue: '',
+		};
 	};
 	previewImage = () => {
 		let fileInput = document.getElementById('fileInput');
@@ -38,7 +39,20 @@ class Profile extends Component {
 		})
 
 	}
+	// this will reactivate the text area when double click
+	handleDoubleClick = () => {
+		this.setState({ isInputActive: true });
+	}
+	handleBlur = () => {
+		this.setState({ isInputActive: false });
+	}
+	// this will change the input name value to the user input 
+	handleNameChange = (event) => {
+		this.setState({ inputNameValue: event.target.value });
+	}
+
 	render() {
+		const { isInputActive, inputNameValue } = this.state;
 		return (
 			<div className="profile">
 				{/* profile starts Here */}
@@ -51,11 +65,27 @@ class Profile extends Component {
 
 						{/* Add placeholder here for the image */}
 					</div>
+					{/* image input ends here */}
 					<div className="disc">
-						<input type="text" name="userName"
-							placeholder="Your Name" id="userName" />
-						<textarea type="text" name="userBio" rows="4" cols="50"
-							placeholder="Small bio about yourself here" id="userBio" />
+						{
+							isInputActive ? (
+								<input type="text" name="userName"
+									placeholder="Your Name" id="userName"
+									value={inputNameValue}
+									onChange={this.handleNameChange}
+									onBlur={this.handleBlur}
+									autoFocus
+								/>
+							) : (
+								<div className="userName"
+									onDoubleClick={this.handleDoubleClick} >
+									{inputNameValue}
+								</div>
+							)
+						}
+						{/* using the logic in the userName input render the Bio */}
+						{/* <textarea type="text" name="userBio" rows="4" cols="50"
+							placeholder="Small bio about yourself here" id="userBio" /> */}
 					</div>
 				</div>
 				<div className="userAddress">
