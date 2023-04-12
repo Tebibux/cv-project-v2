@@ -6,6 +6,8 @@ class Profile extends Component {
 		this.state = {
 			isInputNameActive: true,
 			inputNameValue: '',
+			isInputBioActive: true,
+			inputBioValue: '',
 		};
 	};
 	previewImage = () => {
@@ -53,9 +55,21 @@ class Profile extends Component {
 	}
 	// userName done
 
+	// userBio Started
+	handleBioDoubleClick = () => {
+		this.setState({ isInputBioActive: true });
+	}
+	handleBioBlur = () => {
+		this.setState({ isInputBioActive: false });
+	}
+	handleBioChange = (event) => {
+		this.setState({ inputBioValue: event.target.value });
+	}
 
+	// userBio //done if done
 	render() {
-		const { isInputNameActive, inputNameValue } = this.state;
+		const { isInputNameActive, inputNameValue,
+			isInputBioActive, inputBioValue } = this.state;
 		return (
 			<div className="profile">
 				{/* profile starts Here */}
@@ -77,7 +91,7 @@ class Profile extends Component {
 									value={inputNameValue}
 									onChange={this.handleNameChange}
 									onBlur={this.handleNameBlur}
-									autoFocus
+
 								/>
 							) : (
 								<div className="userName"
@@ -87,8 +101,22 @@ class Profile extends Component {
 							)
 						}
 						{/* using the logic in the userName input render the Bio */}
-						{/* <textarea type="text" name="userBio" rows="4" cols="50"
-							placeholder="Small bio about yourself here" id="userBio" /> */}
+						{
+							isInputBioActive ? (
+								
+								<textarea type="text" name="userBio" rows="4" cols="50"
+									placeholder="Small bio about yourself here" id="userBio"
+									value={inputBioValue}
+									onChange={this.handleBioChange}
+									onBlur={this.handleBioBlur}
+								/>
+							) : (
+								<div className="userBio"
+									onDoubleClick={this.handleBioDoubleClick} >
+									{inputBioValue}
+								</div>
+							)
+						}
 					</div>
 				</div>
 				<div className="userAddress">

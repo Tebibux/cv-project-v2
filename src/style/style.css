@@ -79,6 +79,7 @@ label,
 	display: grid;
 	grid-template-rows: 1fr 2.5fr;
 	margin-left: 5px;
+	margin-top: 15px;
 }
 
 #userName {
@@ -96,8 +97,14 @@ label,
 	font-size: large;
 	font-family: 'Times New Roman', Times, serif;
 }
-.userName{
+.userBio{
 	padding-left: 1em;
+	font-size: 1.1em;
+
+	font-family: 'Times New Roman', Times, serif;
+}
+.userName{
+	padding-left: 0.5em;
 	font-weight: bold;
 	font-size: 1.75em;
 	font-family: 'Times New Roman', Times, serif;
