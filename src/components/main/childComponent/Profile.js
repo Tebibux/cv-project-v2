@@ -24,7 +24,9 @@ class Profile extends Component {
 					userImage.setAttribute('src', imgData);
 					userImage.setAttribute('id', 'userImage')
 					imageDiv.appendChild(userImage);
-					label.style.display = 'none'
+					label.style.display = 'none';
+					imageDiv.style.display = 'grid';
+					imageDiv.style.placeItems = 'center';
 				};
 				reader.onerror = (error) => {
 					console.error('Error: ', error);
@@ -72,4 +74,3 @@ class Profile extends Component {
 }
 
 export default Profile;
-
