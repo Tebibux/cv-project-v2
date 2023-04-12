@@ -56,29 +56,39 @@
 	margin-left: 20px;
 }
 
-label[for="fileInput"] input[type="file"]{
+label[for="fileInput"] input[type="file"] {
 	display: none;
 }
-#userImage,
-label[for="fileInput"] {
+
+label,
+#userImage {
 	background-image: url('/src/asset/download.png');
 	background-size: cover;
-	width: 100%; /* adjust width and height according to your image size */
-	height: 100%;
+	width: 100%;
+	/* adjust width and height according to your image size */
+	height: 140px;
 	display: block;
-  }
-
-.disc {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	margin: 10px;
-	padding: 10px;
 }
 
-.disc>input {
-	height: 40%;
-	padding: 10px;
+
+
+.disc {
+	display: grid;
+	grid-template-rows: 1fr 2.5fr;
+	margin-left: 5px;
+}
+
+#userName {
+	margin-bottom: 5px;
+}
+
+#userBio {
+	margin-top: 5px;
+}
+
+.disc>input,
+.disc>textarea {
+	padding-left: 4px;
 	font-weight: bold;
 	font-size: large;
 	font-family: 'Times New Roman', Times, serif;
