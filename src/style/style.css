@@ -79,7 +79,7 @@ label,
 	display: grid;
 	grid-template-rows: 1fr 2.5fr;
 	margin-left: 5px;
-	margin-top: 15px;
+	margin-top: 5px;
 }
 
 #userName {

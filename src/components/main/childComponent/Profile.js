@@ -65,8 +65,8 @@ class Profile extends Component {
 	handleBioChange = (event) => {
 		this.setState({ inputBioValue: event.target.value });
 	}
-
 	// userBio //done if done
+
 	render() {
 		const { isInputNameActive, inputNameValue,
 			isInputBioActive, inputBioValue } = this.state;
@@ -85,7 +85,7 @@ class Profile extends Component {
 					{/* image input ends here */}
 					<div className="disc">
 						{
-							isInputNameActive ? (
+							isInputNameActive || inputNameValue==='' ? (
 								<input type="text" name="userName"
 									placeholder="Your Name" id="userName"
 									value={inputNameValue}
@@ -94,16 +94,16 @@ class Profile extends Component {
 
 								/>
 							) : (
-								<div className="userName"
-									onDoubleClick={this.handleNameDoubleClick} >
-									{inputNameValue}
-								</div>
-							)
+									<div className="userName"
+										onDoubleClick={this.handleNameDoubleClick} >
+										{inputNameValue}
+									</div>
+								)
 						}
 						{/* using the logic in the userName input render the Bio */}
 						{
-							isInputBioActive ? (
-								
+							isInputBioActive || inputBioValue==='' ? (
+
 								<textarea type="text" name="userBio" rows="4" cols="50"
 									placeholder="Small bio about yourself here" id="userBio"
 									value={inputBioValue}
