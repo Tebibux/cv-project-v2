@@ -12,6 +12,10 @@ class Profile extends Component {
 			inputUserPhoneValue: '',
 			isInputLocationActive: true,
 			inputUserLocationValue: '',
+			isInputEmailActive: true,
+			inputUserEmailValue: '',
+			isInputLinkedInActive: true,
+			inputUserLinkedInValue: '',
 		};
 	};
 	previewImage = () => {
@@ -83,6 +87,7 @@ class Profile extends Component {
 		this.setState({ inputUserPhoneValue: e.target.value })
 	}
 	// userPhone ends here
+	// user location start
 	handleLocationDoubleClick = () => {
 		this.setState({ isInputLocationActive: true });
 	}
@@ -92,12 +97,25 @@ class Profile extends Component {
 	handleLocationChange = (e) => {
 		this.setState({ inputUserLocationValue: e.target.value })
 	}
+	// user location end
+	// userEmail
+	handleEmailDoubleClick = () => {
+		this.setState({ isInputEmailActive: true })
+	}
+	handleEmailBlur = () => {
+		this.setState({ isInputEmailActive: false })
+	}
+	handleEmailChange = (e) => {
+		this.setState({ inputUserEmailValue: e.target.value })
+	}
 	// userAddress ends here
 	render() {
 		const { isInputNameActive, inputNameValue,
 			isInputBioActive, inputBioValue,
 			isInputUserPhoneActive, inputUserPhoneValue,
-			isInputLocationActive, inputUserLocationValue
+			isInputLocationActive, inputUserLocationValue,
+			isInputEmailActive, inputUserEmailValue,
+			isInputLinkedInActive, inputUserLinkedInValue
 		} = this.state;
 		return (
 			<div className="profile">
@@ -184,8 +202,39 @@ class Profile extends Component {
 								</div>
 							)
 						}
-						<input type="email" name="userEmail" placeholder="Your email here" />
-						<input type="url" name="linkedIn" placeholder="Your linkedIn here" />
+						{
+							isInputEmailActive || inputUserEmailValue === '' ? (
+								<input type="email" name="userEmail"
+									placeholder="Your email here"
+									value={inputUserEmailValue}
+									onChange={this.handleEmailChange}
+									onBlur={this.handleEmailBlur}
+								/>
+							) : (
+								<div className="userEmail"
+									onDoubleClick={this.handleEmailDoubleClick}
+								>
+									{inputUserEmailValue}
+								</div>
+							)
+						}
+						{
+							isInputLinkedInActive || inputUserLinkedInValue === '' ? (
+								<input type="url" name="linkedIn"
+									placeholder="Your linkedIn here"
+									value={inputUserLinkedInValue}
+									onChange={this.handleLinkedInChange}
+									onBlur={this.handleLinkedInBlur}
+								/>
+
+							) : (
+								<div className="userLinkedIn"
+									onDoubleClick={this.handleLinkedInDoubleClick}
+								>
+									{inputUserLinkedInValue}
+								</div>
+							)
+						}
 					</form>
 				</div>
 				{/* profile ends Here */}
