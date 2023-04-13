@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import '@fortawesome/fontawesome-free/css/all.css';
 class Profile extends Component {
 	constructor(props) {
 		super(props);
@@ -192,7 +192,7 @@ class Profile extends Component {
 								<div className="userPhone"
 									onDoubleClick={this.handlePhoneDoubleClick}
 								>
-									{inputUserPhoneValue}
+									<i class="fa fa-phone"></i>{inputUserPhoneValue}
 								</div>
 							)
 
