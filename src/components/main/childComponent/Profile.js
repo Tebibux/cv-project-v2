@@ -210,7 +210,7 @@ class Profile extends Component {
 								<div className="userLocation"
 									onDoubleClick={this.handleLocationDoubleClick}
 								>
-									{inputUserLocationValue}
+									<i className="fa fa-map-marker"></i>{inputUserLocationValue}
 								</div>
 							)
 						}
@@ -226,7 +226,7 @@ class Profile extends Component {
 								<div className="userEmail"
 									onDoubleClick={this.handleEmailDoubleClick}
 								>
-									{inputUserEmailValue}
+									<i className="fa fa-envelope"></i>{inputUserEmailValue}
 								</div>
 							)
 						}
@@ -243,7 +243,7 @@ class Profile extends Component {
 								<div className="userLinkedIn"
 									onDoubleClick={this.handleLinkedInDoubleClick}
 								>
-									{inputUserLinkedInValue}
+									<i class="fa-brands fa-linkedin" ></i>{inputUserLinkedInValue}
 								</div>
 							)
 						}
