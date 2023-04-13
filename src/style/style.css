@@ -90,11 +90,15 @@ label,
 	margin-top: 5px;
 }
 
-.disc>input,
-.disc>textarea {
+.disc>input{
 	padding-left: 4px;
 	font-weight: bold;
 	font-size: large;
+	font-family: 'Times New Roman', Times, serif;
+}
+.disc>textarea {
+	padding-left: 4px;
+	font-size: medium;
 	font-family: 'Times New Roman', Times, serif;
 }
 .userBio{

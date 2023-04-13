@@ -98,7 +98,7 @@ class Profile extends Component {
 		this.setState({ inputUserLocationValue: e.target.value })
 	}
 	// user location end
-	// userEmail
+	// userEmail starts
 	handleEmailDoubleClick = () => {
 		this.setState({ isInputEmailActive: true })
 	}
@@ -107,6 +107,17 @@ class Profile extends Component {
 	}
 	handleEmailChange = (e) => {
 		this.setState({ inputUserEmailValue: e.target.value })
+	}
+	// userEmailEnds
+	// userLinkedIn starts 
+	handleLinkedInDoubleClick = () => {
+		this.setState({isInputLinkedInActive: true})
+	}
+	handleLinkedInBlur = () => {
+		this.setState({isInputLinkedInActive: false})
+	}
+	handleLinkedInChange = (e) => {
+		this.setState({inputUserLinkedInValue: e.target.value});
 	}
 	// userAddress ends here
 	render() {
@@ -152,7 +163,8 @@ class Profile extends Component {
 							isInputBioActive || inputBioValue === '' ? (
 
 								<textarea type="text" name="userBio" rows="4" cols="50"
-									placeholder="Small bio about yourself here" id="userBio"
+									placeholder="Small bio about yourself here not more than 200 character" id="userBio"
+									maxLength={200}
 									value={inputBioValue}
 									onChange={this.handleBioChange}
 									onBlur={this.handleBioBlur}
