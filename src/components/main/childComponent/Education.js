@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import uuid4 from "uuid4";
-import uuid from 'uuid4'
 
 class Education extends Component {
 	constructor(props) {
