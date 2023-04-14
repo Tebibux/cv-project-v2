@@ -25,11 +25,11 @@ class Skill extends Component {
 	}
 	render() {
 		const { certification, diplomas } = this.state;
-		const inputAddDocument = document.getElementById('listOfEducations')
+		const inputAddDocument = document.getElementById('listOfSkill')
 		return (
-			<div className="userEducation">
+			<div className="userSkill">
 				<div className="title">Skill</div>
-				<ul className="educations">
+				<ul className="skills">
 					{
 						diplomas.map((certification) => {
 							return <li key={uuid4()}>{certification.diploma}</li>
@@ -39,8 +39,8 @@ class Skill extends Component {
 				</ul>
 				{
 					(diplomas.length < 4) ? (
-						<div className="user-education-dic" id="listOfEducations">
-							<input type="text" name="education" placeholder="Add your Educations here"
+						<div className="user-skill-dic" id="listOfSkill">
+							<input type="text" name="skills" placeholder="Add your Skills here"
 								onChange={this.handleChange}
 								value={certification.diploma}
 							/>

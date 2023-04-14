@@ -37,7 +37,7 @@
 	margin: 0 20%;
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: minmax(100px, 150px) minmax(100px, 150px) minmax(100px, 150px) minmax(100px, 250px);
+	grid-template-rows: minmax(100px, 175px) minmax(100px, 175px) minmax(100px, 175px) minmax(100px, 175px);
 	background-color: rgba(195, 195, 195, 0.357);
 }
 
@@ -145,7 +145,6 @@ label,
 .userEducation .user-experience,
 .user-skill {
 	display: grid;
-	grid-template-rows: 1fr 5fr minmax(30px, 50px);
 }
 
 .title {
@@ -168,7 +167,7 @@ label,
 .userEducation>.user-skill-dic {
 	margin: 1rem;
 	display: grid;
-	grid-template-columns: 4fr 1fr;
+	grid-template-columns: minmax94fr 1fr;
 	height: 35px;
 
 }
@@ -195,6 +194,9 @@ li::before {
 li {
 	margin: 5px;
 	padding-left: 15px;
+	font-size: 1.01em;
+	font-style: oblique;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 .userEducation>.user-education-dic,

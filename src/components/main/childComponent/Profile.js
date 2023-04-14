@@ -192,7 +192,7 @@ class Profile extends Component {
 								<div className="userPhone"
 									onDoubleClick={this.handlePhoneDoubleClick}
 								>
-									<i class="fa fa-phone"></i>{inputUserPhoneValue}
+									<i className="fa fa-phone"></i>{inputUserPhoneValue}
 								</div>
 							)
 
@@ -243,7 +243,7 @@ class Profile extends Component {
 								<div className="userLinkedIn"
 									onDoubleClick={this.handleLinkedInDoubleClick}
 								>
-									<i class="fa-brands fa-linkedin" ></i>{inputUserLinkedInValue}
+									<i className="fa-brands fa-linkedin" ></i>{inputUserLinkedInValue}
 								</div>
 							)
 						}

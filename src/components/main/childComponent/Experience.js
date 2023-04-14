@@ -27,9 +27,9 @@ class Experience extends Component {
 		const { certification, diplomas } = this.state;
 		const inputAddDocument = document.getElementById('listOfEducations')
 		return (
-			<div className="userEducation">
+			<div className="userExperience">
 				<div className="title">Experience</div>
-				<ul className="educations">
+				<ul className="experience">
 					{
 						diplomas.map((certification) => {
 							return <li key={uuid4()}>{certification.diploma}</li>
@@ -39,7 +39,7 @@ class Experience extends Component {
 				</ul>
 				{
 					(diplomas.length < 4) ? (
-						<div className="user-education-dic" id="listOfEducations">
+						<div className="user-experience-dic" id="listOfEducations">
 							<input type="text" name="education" placeholder="Add your Educations here"
 								onChange={this.handleChange}
 								value={certification.diploma}
