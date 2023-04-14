@@ -3,6 +3,7 @@ import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Main from "./components/main/main";
 import "./style/style.css";
+import { Helmet } from 'react-helmet';
 
 class App extends Component {
   // constructor() {
@@ -16,6 +17,9 @@ class App extends Component {
   render() {
     return (
       <div className="container">
+        <Helmet>
+          <title>CV-APP</title>
+        </Helmet>
         <Header />
         <Main />
         <Footer />
