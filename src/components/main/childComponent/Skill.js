@@ -2,16 +2,17 @@ import React, { useState } from "react";
 import uuid4 from "uuid4";
 
 
-const Skill = (props) => {
-	const { certification, setCertification } = useState('');
+const Skill = () => {
+	const { certification, setCertification } = useState({diploma: ''});
+	const diplomas = []
 	const inputAddDocument = document.getElementById('listOfSkill')
 
-	state = {
-		certification: { diploma: '' },
-		diplomas: [],
-	}
+	// state = {
+	// 	certification: { diploma: '' },
+	// 	diplomas: [],
+	// }
 	const handleChange = (e) => {
-		setState({
+		setCertification({
 			certification: {
 				diploma: e.target.value,
 			}
@@ -19,8 +20,8 @@ const Skill = (props) => {
 	}
 	const handleAdd = (e) => {
 		e.preventDefault();
-		setState({
-			diplomas: state.diplomas.concat(state.certification),
+		setCertification({
+			diplomas: certification.diplomas.concat(certification.diploma),
 			certification: { diploma: '' }
 		})
 	}
