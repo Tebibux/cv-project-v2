@@ -1,56 +1,61 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import uuid4 from "uuid4";
 
-const Education = () => {
-	const { certification, setCertification } = useState({ diploma: '' });
-	const diplomas = [];
-	const inputAddDocument = document.getElementById('listOfEducations')
-
-	const handleChange = (e) => {
-		setCertification({
+class Education extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			certification: { diploma: '' },
+			diplomas: [],
+		}
+	}
+	handleChange = (e) => {
+		this.setState({
 			certification: {
 				diploma: e.target.value,
 			}
 		})
 	}
-	const handleAdd = (e) => {
+	handleAdd = (e) => {
 		e.preventDefault();
-		setCertification({
-			diplomas: certification.diplomas.concat(this.state.certification),
+		this.setState({
+			diplomas: this.state.diplomas.concat(this.state.certification),
 			certification: { diploma: '' }
 		})
 	}
+	render() {
+		const { certification, diplomas } = this.state;
+		const inputAddDocument = document.getElementById('listOfEducations')
+		return (
+			<div className="userEducation">
+				<div className="title">Education</div>
+				<ul className="educations">
+					{
+						diplomas.map((certification) => {
+							return <li key={uuid4()}>{certification.diploma}</li>
+						})
 
-	return (
-		<div className="userEducation">
-			<div className="title">Education</div>
-			<ul className="educations">
+					}
+				</ul>
 				{
-					diplomas.map((certification) => {
-						return <li key={uuid4()}>{certification.diploma}</li>
-					})
-
+					(diplomas.length < 4) ? (
+						<div className="user-education-dic" id="listOfEducations">
+							<input type="text" name="education" placeholder="Add your Educations here"
+								onChange={this.handleChange}
+								value={certification.diploma}
+							/>
+							<button className="btn-add"
+								onClick={this.handleAdd}
+							>Add</button>
+						</div>
+					) : (
+						inputAddDocument.style.display = ''
+					)
 				}
-			</ul>
-			{
-				(diplomas.length < 4) ? (
-					<div className="user-education-dic" id="listOfEducations">
-						<input type="text" name="education" placeholder="Add your Educations here"
-							onChange={handleChange}
-							value={certification.diploma}
-						/>
-						<button className="btn-add"
-							onClick={handleAdd}
-						>Add</button>
-					</div>
-				) : (
-					inputAddDocument.style.display = ''
-				)
-			}
 
-		</div>
-	);
+			</div>
+		);
+	}
 }
-
 
 export default Education;
