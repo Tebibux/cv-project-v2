@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import uuid4 from "uuid4";
 
 const Education = () => {
-	const { diplomas, setDiplomas } = useState([]);
-	const { certification, setCertification } = useState('');
+	const [diplomas, setDiplomas] = useState([]);
+	const [certification, setCertification] = useState('');
 
 	const inputAddDocument = document.getElementById('listOfEducations');
 	// constructor(props) {
@@ -35,7 +35,7 @@ const Education = () => {
 					diplomas.map((certification) => {
 						return <li key={uuid4()}>{certification}</li>
 					})
-					
+
 				}
 			</ul>
 			{
