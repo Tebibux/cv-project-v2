@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-// import uuid4 from "uuid4";
+import uuid4 from "uuid4";
 
 const Education = () => {
 	const { diplomas, setDiplomas } = useState([]);
 	const { certification, setCertification } = useState('');
 
-
-	
 	const inputAddDocument = document.getElementById('listOfEducations');
 	// constructor(props) {
 	// 	super(props);
@@ -16,7 +14,8 @@ const Education = () => {
 	// 	}
 	// }
 	useEffect(() => {
-		console.log('some change')
+		console.log('ho hope')
+
 	}, [diplomas])
 	const handleChange = (e) => {
 		setCertification(e.target.value)
@@ -31,11 +30,11 @@ const Education = () => {
 	return (
 		<div className="userEducation">
 			<div className="title">Education</div>
-			<ul className="educations">
+			<ul id="listItem" className="educations">
 				{
-					// diplomas.map((certification) => {
-					// 	return <li key={uuid4()}>{certification}</li>
-					// })
+					diplomas.map((certification) => {
+						return <li key={uuid4()}>{certification}</li>
+					})
 					
 				}
 			</ul>
