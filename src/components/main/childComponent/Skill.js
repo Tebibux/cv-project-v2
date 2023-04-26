@@ -1,61 +1,60 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import uuid4 from "uuid4";
 
-class Skill extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			certification: { diploma: '' },
-			diplomas: [],
-		}
+const Skill = () => {
+	const [diplomas, setDiplomas] = useState([]);
+	const [certification, setCertification] = useState('');
+	const inputAddDocument = document.getElementById('listOfSkill')
+	// constructor(props) {
+	// 	super(props);
+	// 	this.state = {
+	// 		certification: { diploma: '' },
+	// 		diplomas: [],
+	// 	}
+	// }
+
+	useEffect(() => {
+		console.log('there is hope')
+
+	}, [diplomas])
+	const handleChange = (e) => {
+		setCertification(e.target.value);
 	}
-	handleChange = (e) => {
-		this.setState({
-			certification: {
-				diploma: e.target.value,
-			}
-		})
-	}
-	handleAdd = (e) => {
+	const handleAdd = (e) => {
 		e.preventDefault();
-		this.setState({
-			diplomas: this.state.diplomas.concat(this.state.certification),
-			certification: { diploma: '' }
-		})
+		setDiplomas([...diplomas, certification]);
+		setCertification('');
 	}
-	render() {
-		const { certification, diplomas } = this.state;
-		const inputAddDocument = document.getElementById('listOfSkill')
-		return (
-			<div className="userSkill">
-				<div className="title">Skill</div>
-				<ul className="skills">
-					{
-						diplomas.map((certification) => {
-							return <li key={uuid4()}>{certification.diploma}</li>
-						})
 
-					}
-				</ul>
+	return (
+		<div className="userSkill">
+			<div className="title">Skill</div>
+			<ul className="skills">
 				{
-					(diplomas.length < 4) ? (
-						<div className="user-skill-dic" id="listOfSkill">
-							<input type="text" name="skills" placeholder="Add your Skills here"
-								onChange={this.handleChange}
-								value={certification.diploma}
-							/>
-							<button className="btn-add"
-								onClick={this.handleAdd}
-							>Add</button>
-						</div>
-					) : (
-						inputAddDocument.style.display = ''
-					)
-				}
+					diplomas.map((certification) => {
+						return <li key={uuid4()}>{certification}</li>
+					})
 
-			</div>
-		);
-	}
+				}
+			</ul>
+			{
+				(diplomas.length < 4) ? (
+					<div className="user-skill-dic" id="listOfSkill">
+						<input type="text" name="skills" placeholder="Add your Skills here"
+							onChange={handleChange}
+							value={certification}
+						/>
+						<button className="btn-add"
+							onClick={handleAdd}
+						>Add</button>
+					</div>
+				) : (
+					inputAddDocument.style.display = ''
+				)
+			}
+
+		</div>
+	);
 }
 
 export default Skill;
