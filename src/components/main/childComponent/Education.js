@@ -1,9 +1,12 @@
-import React, { useState } from "react";
-import uuid4 from "uuid4";
+import React, { useEffect, useState } from "react";
+// import uuid4 from "uuid4";
 
 const Education = () => {
-	const { certification, setCertification } = useState('');
 	const { diplomas, setDiplomas } = useState([]);
+	const { certification, setCertification } = useState('');
+
+
+	
 	const inputAddDocument = document.getElementById('listOfEducations');
 	// constructor(props) {
 	// 	super(props);
@@ -12,17 +15,17 @@ const Education = () => {
 	// 		diplomas: [],
 	// 	}
 	// }
+	useEffect(() => {
+		console.log('some change')
+	}, [diplomas])
 	const handleChange = (e) => {
-		setCertification({
-			certification:  e.target.value,
-		})
+		setCertification(e.target.value)
 	}
+
 	const handleAdd = (e) => {
 		e.preventDefault();
 		setDiplomas([...diplomas, certification]);
-		setCertification({
-			certification: '',
-		});
+		setCertification('');
 	}
 
 	return (
@@ -30,10 +33,10 @@ const Education = () => {
 			<div className="title">Education</div>
 			<ul className="educations">
 				{
-					diplomas.map((certification) => {
-						return <li key={uuid4()}>{certification.diploma}</li>
-					})
-
+					// diplomas.map((certification) => {
+					// 	return <li key={uuid4()}>{certification}</li>
+					// })
+					
 				}
 			</ul>
 			{
@@ -41,7 +44,7 @@ const Education = () => {
 					<div className="user-education-dic" id="listOfEducations">
 						<input type="text" name="education" placeholder="Add your Educations here"
 							onChange={handleChange}
-							value={certification.diploma}
+							value={certification}
 						/>
 						<button className="btn-add"
 							onClick={handleAdd}
