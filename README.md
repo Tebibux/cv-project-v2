@@ -46,6 +46,7 @@ To use the CV Application, follow these simple steps:
 
 - HTML, CSS, and JavaScript: Fundamentals for creating a responsive and engaging web application.
 
+
 ## Contributing
 
 Contributions to the CV Application are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue or submit a pull request.
