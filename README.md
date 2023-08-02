@@ -16,8 +16,6 @@ The CV Application is a web-based tool that allows users to easily build their C
 
 - **Projects and Achievements:** Emphasize your notable projects, achievements, or certifications to demonstrate your expertise.
 
-- **Customization Options:** Customize the layout, fonts, and colors to create a CV that reflects your personality and style.
-
 - **Preview and Download:** Preview your CV before finalizing, and then download it in various formats like PDF, DOCX, or HTML.
 
 ## Getting Started
