@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import './App.css'
-import { FaGithub } from 'react-icons/fa';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faPlus, faDownload } from '@fortawesome/free-solid-svg-icons';
+
+// components
+import { Header } from './components/Header';
 function App() {
   const [isShowPersonalInfo, setIsShowPersonalInfo] = useState(false);
   const [isShowEducation, setIsShowEducation] = useState(false);
@@ -43,17 +45,11 @@ function App() {
     setIsShowSkill(!isShowSkill)
   }
 
-  const year = new Date();
+
 
   return (
     <div className="container">
-      <header>
-        <h4>CV Maker</h4>
-        <h6>By Tebibux &#169; {year.getFullYear()}</h6>
-        <a href="https://github.com/Tebibux/cv-project-v2" target="_blank" rel="noreferrer">
-          <FaGithub />
-        </a>
-      </header>
+      <Header />
       <main>
         <section className="main-building-section">
           <div className="information-section">
