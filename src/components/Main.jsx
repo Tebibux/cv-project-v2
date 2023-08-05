@@ -15,10 +15,23 @@ const Main = ({
   handleExperiance,
   isShowExperiance,
   handleSkill,
-  isShowSkill
+  isShowSkill,
+  handleDownloadCV
 }) => {
   return <main>
-    <BuilderSection faDownload={faDownload} handlePersonInfoShow={handlePersonInfoShow} faChevronDown={faChevronDown} isShowPersonalInfo={isShowPersonalInfo} handleEducation={handleEducation} isShowEducation={isShowEducation} faPlus={faPlus} handleExperiance={handleExperiance} isShowExperiance={isShowExperiance} handleSkill={handleSkill} isShowSkill={isShowSkill} />
+    <BuilderSection
+      handleDownloadCV={handleDownloadCV}
+      faDownload={faDownload}
+      handlePersonInfoShow={handlePersonInfoShow}
+      faChevronDown={faChevronDown}
+      isShowPersonalInfo={isShowPersonalInfo}
+      handleEducation={handleEducation}
+      isShowEducation={isShowEducation}
+      faPlus={faPlus}
+      handleExperiance={handleExperiance}
+      isShowExperiance={isShowExperiance}
+      handleSkill={handleSkill}
+      isShowSkill={isShowSkill} />
     <PreviewSection />
   </main>;
 }

@@ -17,12 +17,13 @@ const BuilderSection = ({
   handleExperiance,
   isShowExperiance,
   handleSkill,
-  isShowSkill
+  isShowSkill, 
+  handleDownloadCV
 }) => {
   return <section className="main-building-section">
     <div className="information-section">
       <p>If you&#39;d like to Download PDF </p>
-      <button><FontAwesomeIcon icon={faDownload} /></button>
+      <button onClick={handleDownloadCV}><FontAwesomeIcon icon={faDownload} /></button>
     </div>
     <section className="building-section">
       <AddPersonalInfo

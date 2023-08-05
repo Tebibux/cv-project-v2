@@ -4,7 +4,7 @@ import { Education } from './PreviewComponents/Education';
 import { Profile } from './PreviewComponents/Profile';
 export function PreviewSection() {
   return <>
-    <section className="preview-section">
+    <section className="preview-section " id='my-cv'>
       <Profile />
       <Education />
       <Experiance />

@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './App.css';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 import { faChevronDown, faPlus, faDownload } from '@fortawesome/free-solid-svg-icons';
 // components
 
@@ -45,6 +47,24 @@ function App() {
     setIsShowSkill(!isShowSkill)
   }
 
+  const handleDownloadCV = async () => {
+    console.log('you just clicked Download button download will be made here');
+    const previewToDownload = document.querySelector('.preview-section');
+    console.log(previewToDownload);
+
+    if (previewToDownload) {
+      html2canvas(previewToDownload)
+        .then(canvas => {
+          const pdf = new jsPDF();
+          const imgData = canvas.toDataURL('image/jpeg');
+          pdf.addImage(imgData, 'JPEG', 0, 0);
+          pdf.save('my_cv.pdf');
+        })
+    } else {
+      console.error('element no found');
+    }
+
+  }
 
 
   return (
@@ -61,6 +81,7 @@ function App() {
         isShowExperiance={isShowExperiance}
         handleSkill={handleSkill}
         isShowSkill={isShowSkill}
+        handleDownloadCV={handleDownloadCV}
       />
     </div>
   )
