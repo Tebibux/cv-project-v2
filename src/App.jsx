@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import './App.css';
 import { faChevronDown, faPlus, faDownload } from '@fortawesome/free-solid-svg-icons';
-
 // components
-import { Header } from './components/Header';
-import { BuilderSection } from './components/BuilderSection';
-import { PreviewSection } from './components/PreviewSection';
 
+import Main from './components/Main';
+import { Header } from './components/Header';
 
 function App() {
   const [isShowPersonalInfo, setIsShowPersonalInfo] = useState(false);
@@ -27,7 +25,6 @@ function App() {
     // return all the state to its original state and set the desired state change
     reSetter();
     setIsShowPersonalInfo(!isShowPersonalInfo);
-
   }
 
   const handleEducation = () => {
@@ -53,10 +50,18 @@ function App() {
   return (
     <div className="container">
       <Header />
-      <main>
-        <BuilderSection faDownload={faDownload} handlePersonInfoShow={handlePersonInfoShow} faChevronDown={faChevronDown} isShowPersonalInfo={isShowPersonalInfo} handleEducation={handleEducation} isShowEducation={isShowEducation} faPlus={faPlus} handleExperiance={handleExperiance} isShowExperiance={isShowExperiance} handleSkill={handleSkill} isShowSkill={isShowSkill} />
-        <PreviewSection />
-      </main>
+      <Main
+        faDownload={faDownload}
+        handlePersonInfoShow={handlePersonInfoShow}
+        faChevronDown={faChevronDown}
+        isShowPersonalInfo={isShowPersonalInfo}
+        handleEducation={handleEducation}
+        isShowEducation={isShowEducation} f
+        aPlus={faPlus} handleExperiance={handleExperiance}
+        isShowExperiance={isShowExperiance}
+        handleSkill={handleSkill}
+        isShowSkill={isShowSkill}
+      />
     </div>
   )
 }
