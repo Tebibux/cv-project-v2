@@ -35,6 +35,13 @@ const AddPersonalInfo = ({
 
   }
 
+  const handleUserName = (e) => {
+    setGeneralInformation(() => ({
+      ...generalInformation,
+      userFullName: e.target.value
+    }))
+  }
+
   return <div className="personal-information  information-parent">
     <button className="personal-information-button drop-down-menu-button" onClick={handlePersonInfoShow}>
       <span> General Information </span> <FontAwesomeIcon icon={faChevronDown} />
@@ -49,7 +56,12 @@ const AddPersonalInfo = ({
         <label htmlFor="file-input" className="custom-file-button">Upload Profile Image</label>
       </div>
       <div className='list UserFullName'>
-        <input type="text" name="userName" id="" placeholder='Full Name' />
+        <input
+          type="text" name="userName" 
+          id="" 
+          placeholder='Full Name' 
+          onChange={handleUserName}
+          />
       </div>
       <div className='list UserPhone'>
         <input type="tel" name="userPhone" id="" placeholder='Phone Number' />
