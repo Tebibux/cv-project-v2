@@ -3,8 +3,37 @@ const AddPersonalInfo = ({
   FontAwesomeIcon,
   handlePersonInfoShow,
   faChevronDown,
-  isShowPersonalInfo
+  isShowPersonalInfo,
+  setProfileSelected,
+  setGeneralInformation,
+  generalInformation
 }) => {
+
+
+  const handleImageInput = (e) => {
+    // console.log(e.target.files[0]);
+    const userImageFile = e.target.files[0];
+    if (userImageFile) {
+      const userImageReader = new FileReader();
+
+      userImageReader.onload = () => {
+        setGeneralInformation(() => (
+          {
+            ...generalInformation, userImage: {
+              ...generalInformation.userImage,
+              userImagePath: userImageReader.result,
+              userImageName: userImageFile.name
+            }
+          }
+        ))
+        setProfileSelected(true)
+        // console.log(generalInformation)
+      }
+
+      userImageReader.readAsDataURL(userImageFile);
+    }
+
+  }
 
   return <div className="personal-information  information-parent">
     <button className="personal-information-button drop-down-menu-button" onClick={handlePersonInfoShow}>
@@ -12,7 +41,11 @@ const AddPersonalInfo = ({
     </button>
     {isShowPersonalInfo && <div className="personal-information drop-down-menu-list">
       <div className='list UserPhoto input-container'>
-        <input type="file" name="image" accept="image/jpeg, image/png" />
+        <input
+          type="file" name="image"
+          accept="image/jpeg, image/png"
+          onChange={handleImageInput}
+        />
         <label htmlFor="file-input" className="custom-file-button">Upload Profile Image</label>
       </div>
       <div className='list UserFullName'>

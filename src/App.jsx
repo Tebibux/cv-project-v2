@@ -9,10 +9,26 @@ import Main from './components/Main';
 import { Header } from './components/Header';
 
 function App() {
+  // uses for the dropdown button of the profile filler
   const [isShowPersonalInfo, setIsShowPersonalInfo] = useState(false);
   const [isShowEducation, setIsShowEducation] = useState(false);
   const [isShowExperiance, setIsShowExperiance] = useState(false);
   const [isShowSkill, setIsShowSkill] = useState(false);
+
+  // for the General Information variable placeholder object
+  const [generalInformation, setGeneralInformation] = useState({
+    userImage: {
+      userImagePath: null,
+      userImageName: ''
+    },
+    userFullName: 'Full Name',
+    userPhoneNumber: '+123456789',
+    userEmail: 'example@example.com',
+    userLocation: 'City, State, Country'
+  });
+
+  // checks if profile is selected or not 
+  const [profileSelected, setProfileSelected] = useState(false);
 
   // function reSetter will reset the state to its original status
   const reSetter = () => {
@@ -67,6 +83,7 @@ function App() {
   }
 
 
+
   return (
     <div className="container">
       <Header />
@@ -82,6 +99,11 @@ function App() {
         handleSkill={handleSkill}
         isShowSkill={isShowSkill}
         handleDownloadCV={handleDownloadCV}
+        profileSelected={profileSelected}
+        setProfileSelected={setProfileSelected}
+        setGeneralInformation={setGeneralInformation}
+        generalInformation={generalInformation}
+        
       />
     </div>
   )

@@ -17,9 +17,13 @@ const BuilderSection = ({
   handleExperiance,
   isShowExperiance,
   handleSkill,
-  isShowSkill, 
-  handleDownloadCV
+  isShowSkill,
+  handleDownloadCV,
+  setProfileSelected,
+  setGeneralInformation,
+  generalInformation
 }) => {
+
   return <section className="main-building-section">
     <div className="information-section">
       <p>If you&#39;d like to Download PDF </p>
@@ -31,6 +35,9 @@ const BuilderSection = ({
         handlePersonInfoShow={handlePersonInfoShow}
         faChevronDown={faChevronDown}
         isShowPersonalInfo={isShowPersonalInfo}
+        setGeneralInformation={setGeneralInformation}
+        generalInformation={generalInformation}
+        setProfileSelected={setProfileSelected}
       />
       <AddEducation
         FontAwesomeIcon={FontAwesomeIcon}

@@ -16,8 +16,13 @@ const Main = ({
   isShowExperiance,
   handleSkill,
   isShowSkill,
-  handleDownloadCV
+  handleDownloadCV,
+  profileSelected,
+  setProfileSelected,
+  setGeneralInformation,
+  generalInformation
 }) => {
+
   return <main>
     <BuilderSection
       handleDownloadCV={handleDownloadCV}
@@ -31,8 +36,15 @@ const Main = ({
       handleExperiance={handleExperiance}
       isShowExperiance={isShowExperiance}
       handleSkill={handleSkill}
-      isShowSkill={isShowSkill} />
-    <PreviewSection />
+      isShowSkill={isShowSkill}
+      setProfileSelected={setProfileSelected}
+      setGeneralInformation={setGeneralInformation}
+      generalInformation={generalInformation}
+    />
+    <PreviewSection
+      profileSelected={profileSelected}
+      generalInformation={generalInformation}
+    />
   </main>;
 }
 

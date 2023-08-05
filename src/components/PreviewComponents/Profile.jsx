@@ -1,11 +1,27 @@
-export function Profile() {
-  return <div className="general-information-box">
-    <img src="/Screenshot from 2022-09-29 00-26-10.png" alt="user profile photo" className="user-photo" />
-    <ul className="user-desc">
-      <li className='user-name' aria-label='user full name'> Tebibu Solomon</li>
-      <li className='user-phone' aria-label='user phone number'> +2519725393</li>
-      <li className='user-email' aria-label='user email'> tebibusolmon79@gmail.com</li>
-      <li className='user-location' aria-label='user current location'> Wolayta, Sodo, Ethiopia</li>
-    </ul>
-  </div>;
+/* eslint-disable react/prop-types */
+import ImageFiller from 'react-image-filler';
+
+export function Profile({ profileSelected, generalInformation }) {
+
+  return (
+    <div className="general-information-box">
+      {profileSelected ? (
+        <>
+          <img
+            src={generalInformation.userImage.userImagePath} 
+            className="user-photo" 
+            alt={generalInformation.userImage.userImageName} />
+        </>
+      ) : (
+        <ImageFiller className="user-photo" text="Profile Photo" />
+      )}
+
+      <ul className="user-desc">
+        <li className='user-name' aria-label='user full name'>{generalInformation.userFullName} </li>
+        <li className='user-phone' aria-label='user phone number'>{generalInformation.userPhoneNumber}</li>
+        <li className='user-email' aria-label='user email'> {generalInformation.userEmail}</li>
+        <li className='user-location' aria-label='user current location'>{generalInformation.userLocation}</li>
+      </ul>
+    </div>
+  );
 }
