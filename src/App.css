@@ -212,12 +212,14 @@ input[type="date"]:focus {
 }
 
 /* input date ends here*/
+.userEduDurationYear,
 .userEmpDurationYear {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
 }
 
+.education-duration,
 .employed-duration {
 	display: flex;
 	justify-content: center;
@@ -326,6 +328,10 @@ input[type="date"]:focus {
 .education-desc {
 	display: flex;
 	justify-content: space-between;
+	padding: 20px 0px;
 	padding-right: 10%;
 }
 
+.university-name{
+	font-weight: bold;
+}

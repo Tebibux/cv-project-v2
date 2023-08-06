@@ -27,6 +27,31 @@ function App() {
     userEmail: 'example@example.com',
     userLocation: 'City, State, Country'
   });
+
+  // Object used to hold the education individual data
+
+  const education = {
+    uuid: 123,
+    filedOfEducation: 'Electro Mechanical Engineering',
+    studiedUniversity: 'Yale University',
+    startDate: 'September 2023 E.C',
+    endDate: 'September 2023 E.C'
+  }
+
+  const education2 = {
+    uuid: 321,
+    filedOfEducation: 'Electro Mechanical Engineering',
+    studiedUniversity: 'Yale University',
+    startDate: 'September 2023 E.C',
+    endDate: 'September 2023 E.C'
+  }
+
+
+  // array used to hold objects of the Education Experiance
+  const [educations, setEducations] = useState([education, education2]);
+
+
+
   // select the my-cv div from the html document
   // const previewToDownload = document.querySelector('.preview-section');
 
@@ -66,20 +91,8 @@ function App() {
     setIsShowSkill(!isShowSkill)
   }
 
-  // const handleDownloadCV = async () => {
-  //   if (previewToDownload) {
-  //     html2canvas(previewToDownload)
-  //       .then(canvas => {
-  //         const pdf = new jsPDF();
-  //         const imgData = canvas.toDataURL('image/jpeg');
-  //         pdf.addImage(imgData, 'JPEG', 0, 0);
-  //         pdf.save('my_cv.pdf');
-  //       })
-  //   } else {
-  //     console.error('element no found');
-  //   }
-  // }
 
+  // handlePreview will handle the preview and download process of the CV
   const handlePreview = () => {
     // console.log('message before if close')
     // if (previewToDownload) {
@@ -197,8 +210,8 @@ function App() {
         faChevronDown={faChevronDown}
         isShowPersonalInfo={isShowPersonalInfo}
         handleEducation={handleEducation}
-        isShowEducation={isShowEducation} 
-        faPlus={faPlus} 
+        isShowEducation={isShowEducation}
+        faPlus={faPlus}
         handleExperiance={handleExperiance}
         isShowExperiance={isShowExperiance}
         handleSkill={handleSkill}
@@ -208,7 +221,7 @@ function App() {
         setProfileSelected={setProfileSelected}
         setGeneralInformation={setGeneralInformation}
         generalInformation={generalInformation}
-
+        educations={educations}
       />
     </div>
   )

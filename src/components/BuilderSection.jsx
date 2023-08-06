@@ -26,7 +26,7 @@ const BuilderSection = ({
 
   return <section className="main-building-section">
     <div className="information-section">
-      <p>If you&#39;d like Preview </p>
+      <p>If you&#39;d like Download PDF </p>
       <button onClick={handlePreview}><FontAwesomeIcon icon={faDownload} /></button>
     </div>
     <section className="building-section">

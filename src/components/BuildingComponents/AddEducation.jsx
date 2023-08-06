@@ -20,6 +20,16 @@ const AddEducation = ({
       <div className='list userInstitute'>
         <input type="text" name="userInstitute" id="" placeholder='Yale University' />
       </div>
+      <div className='list userEduDurationYear'>
+        <div className='education-duration'>
+          <label htmlFor="userEduDurationYearFrom">Start</label>
+          <input type="date" name="userEduDurationYearFrom" id="" />
+        </div>
+        <div className='education-duration'>
+          <label htmlFor="userEduDurationYearFrom">End</label>
+          <input type="date" name="userEduDurationYearTo" id="" />
+        </div>
+      </div>
       <div className="add-item">
         <button className="save">Save</button>
         <div className="add-additional-item">
