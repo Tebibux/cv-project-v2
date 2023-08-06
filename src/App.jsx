@@ -1,8 +1,5 @@
 import { useState } from 'react';
 import './App.css';
-// import html2canvas from 'html2canvas';
-// import jsPDF from 'jspdf';
-// import html2pdf from 'html2pdf.js'
 import { faChevronDown, faPlus, faDownload } from '@fortawesome/free-solid-svg-icons';
 // components
 
