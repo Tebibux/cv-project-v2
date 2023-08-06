@@ -212,17 +212,21 @@ input[type="date"]:focus {
 }
 
 /* input date ends here*/
-.userEmpDurationYear{
+.userEduDurationYear,
+.userEmpDurationYear {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
 }
-.employed-duration{
+
+.education-duration,
+.employed-duration {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	gap: 10px;
 }
+
 @keyframes slide-down {
 	from {
 		max-height: 0%;
@@ -262,6 +266,8 @@ input[type="date"]:focus {
 	flex-direction: column;
 	gap: 20px;
 	margin-left: 20px;
+	padding: 18px;
+
 }
 
 .skill-desc,
@@ -299,7 +305,7 @@ input[type="date"]:focus {
 .user-desc>li {
 	list-style: none;
 	margin-top: 10px;
-	margin-right: 5px;
+	margin-right: 15px;
 	font-size: 18px;
 }
 
@@ -322,5 +328,10 @@ input[type="date"]:focus {
 .education-desc {
 	display: flex;
 	justify-content: space-between;
+	padding: 20px 0px;
 	padding-right: 10%;
+}
+
+.university-name{
+	font-weight: bold;
 }
