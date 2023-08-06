@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import './App.css';
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
+// import html2canvas from 'html2canvas';
+// import jsPDF from 'jspdf';
+// import html2pdf from 'html2pdf.js'
 import { faChevronDown, faPlus, faDownload } from '@fortawesome/free-solid-svg-icons';
 // components
 
@@ -21,11 +22,13 @@ function App() {
       userImagePath: null,
       userImageName: ''
     },
-    userFullName: 'Full Name',
+    userFullName: 'John Doe',
     userPhoneNumber: '+123456789',
     userEmail: 'example@example.com',
     userLocation: 'City, State, Country'
   });
+  // select the my-cv div from the html document
+  // const previewToDownload = document.querySelector('.preview-section');
 
   // checks if profile is selected or not 
   const [profileSelected, setProfileSelected] = useState(false);
@@ -63,25 +66,126 @@ function App() {
     setIsShowSkill(!isShowSkill)
   }
 
-  const handleDownloadCV = async () => {
-    console.log('you just clicked Download button download will be made here');
-    const previewToDownload = document.querySelector('.preview-section');
-    console.log(previewToDownload);
+  // const handleDownloadCV = async () => {
+  //   if (previewToDownload) {
+  //     html2canvas(previewToDownload)
+  //       .then(canvas => {
+  //         const pdf = new jsPDF();
+  //         const imgData = canvas.toDataURL('image/jpeg');
+  //         pdf.addImage(imgData, 'JPEG', 0, 0);
+  //         pdf.save('my_cv.pdf');
+  //       })
+  //   } else {
+  //     console.error('element no found');
+  //   }
+  // }
 
-    if (previewToDownload) {
-      html2canvas(previewToDownload)
-        .then(canvas => {
-          const pdf = new jsPDF();
-          const imgData = canvas.toDataURL('image/jpeg');
-          pdf.addImage(imgData, 'JPEG', 0, 0);
-          pdf.save('my_cv.pdf');
-        })
+  const handlePreview = () => {
+    // console.log('message before if close')
+    // if (previewToDownload) {
+    //   const popupWindow = window.open('', '_blank', 'width=21cm, height=auto');
+    //   popupWindow.document.open();
+    //   popupWindow.document.write(`${previewToDownload.outerHTML}`);
+    //   popupWindow.document.close();
+    //   popupWindow.print();
+    // } 
+    const previewToDownloadAlt = document.getElementById('my-cv');
+    if (previewToDownloadAlt) {
+      const printWindow = window.open('', '', 'width=794,height=auto'); // A4 size in pixels (assuming 72 DPI)
+      printWindow.document.open();
+      printWindow.document.write(`
+      <html>
+      <head>
+        <title>Your CV</title>
+        <style>
+          body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+          }
+          .preview-section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-left: 20px;
+            padding: 18px;
+          
+          }
+          
+          .skill-desc,
+          .professional-exp,
+          .education-preview-section,
+          .general-information-box {
+            padding: 20px;
+            box-shadow: 0px 10px 10px -6px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: 0px 10px 10px -6px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 0px 10px 10px -6px rgba(0, 0, 0, 0.75);
+          }
+          
+          .general-information-box {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+          }
+          
+          .user-photo {
+            width: 150px;
+            margin-left: 30px;
+            height: 100%;
+          }
+          
+          .user-desc {
+            justify-self: end;
+            margin-right: 10%;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.42);
+            -webkit-box-shadow: 6px 0px 0px 0px rgba(0, 0, 0, 0.52);
+            -moz-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.52);
+            /* border-image: linear-gradient(to right, white, black); */
+          }
+          
+          .user-desc>li {
+            list-style: none;
+            margin-top: 10px;
+            margin-right: 15px;
+            font-size: 18px;
+          }
+          
+          .user-desc>.user-name {
+            font-weight: bold;
+          }
+          
+          .professional-desc,
+          .education-preview-section {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            gap: 10px;
+          }
+          
+          .education-preview-section>h4 {
+            font-size: 18px;
+          }
+          
+          .education-desc {
+            display: flex;
+            justify-content: space-between;
+            padding-right: 10%;
+          }
+        </style>
+      </head>
+      <body>
+        ${previewToDownloadAlt.outerHTML}
+      </body>
+      </html>
+    `);
+      printWindow.document.close();
+      printWindow.print();
     } else {
-      console.error('element no found');
+      console.error(`Element with ID '${previewToDownloadAlt}' not found.`);
     }
-
   }
-
 
 
   return (
@@ -93,17 +197,18 @@ function App() {
         faChevronDown={faChevronDown}
         isShowPersonalInfo={isShowPersonalInfo}
         handleEducation={handleEducation}
-        isShowEducation={isShowEducation} f
-        aPlus={faPlus} handleExperiance={handleExperiance}
+        isShowEducation={isShowEducation} 
+        faPlus={faPlus} 
+        handleExperiance={handleExperiance}
         isShowExperiance={isShowExperiance}
         handleSkill={handleSkill}
         isShowSkill={isShowSkill}
-        handleDownloadCV={handleDownloadCV}
+        handlePreview={handlePreview}
         profileSelected={profileSelected}
         setProfileSelected={setProfileSelected}
         setGeneralInformation={setGeneralInformation}
         generalInformation={generalInformation}
-        
+
       />
     </div>
   )

@@ -16,7 +16,7 @@ const Main = ({
   isShowExperiance,
   handleSkill,
   isShowSkill,
-  handleDownloadCV,
+  handlePreview,
   profileSelected,
   setProfileSelected,
   setGeneralInformation,
@@ -25,7 +25,7 @@ const Main = ({
 
   return <main>
     <BuilderSection
-      handleDownloadCV={handleDownloadCV}
+      handlePreview={handlePreview}
       faDownload={faDownload}
       handlePersonInfoShow={handlePersonInfoShow}
       faChevronDown={faChevronDown}

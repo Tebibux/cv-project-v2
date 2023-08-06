@@ -41,7 +41,24 @@ const AddPersonalInfo = ({
       userFullName: e.target.value
     }))
   }
-
+  const handlePhoneNumber = (e) => {
+    setGeneralInformation(() => ({
+      ...generalInformation,
+      userPhoneNumber: e.target.value
+    }))
+  }
+  const handleUserEmail = (e) => {
+    setGeneralInformation(() => ({
+      ...generalInformation,
+      userEmail: e.target.value
+    }))
+  }
+  const handleUserLocation = (e) => {
+    setGeneralInformation(() => ({
+      ...generalInformation,
+      userLocation: e.target.value
+    }))
+  }
   return <div className="personal-information  information-parent">
     <button className="personal-information-button drop-down-menu-button" onClick={handlePersonInfoShow}>
       <span> General Information </span> <FontAwesomeIcon icon={faChevronDown} />
@@ -57,20 +74,33 @@ const AddPersonalInfo = ({
       </div>
       <div className='list UserFullName'>
         <input
-          type="text" name="userName" 
-          id="" 
-          placeholder='Full Name' 
+          type="text" name="userName"
+          id=""
+          placeholder='Full Name'
           onChange={handleUserName}
-          />
+        />
       </div>
       <div className='list UserPhone'>
-        <input type="tel" name="userPhone" id="" placeholder='Phone Number' />
+        <input
+          type="tel" name="userPhone"
+          id=""
+          placeholder='Phone Number'
+          onChange={handlePhoneNumber}
+        />
       </div>
       <div className='list UserEmail'>
-        <input type="email" name="userEmail" id="" placeholder='Email' />
+        <input type="email"
+          name="userEmail"
+          id=""
+          placeholder='Email'
+          onChange={handleUserEmail} />
       </div>
       <div className='list Location'>
-        <input type="text" name="userLocation" id="" placeholder='location' />
+        <input type="text"
+          name="userLocation"
+          id=""
+          placeholder='location'
+          onChange={handleUserLocation} />
       </div>
     </div>}
   </div>;

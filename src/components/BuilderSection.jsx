@@ -18,7 +18,7 @@ const BuilderSection = ({
   isShowExperiance,
   handleSkill,
   isShowSkill,
-  handleDownloadCV,
+  handlePreview,
   setProfileSelected,
   setGeneralInformation,
   generalInformation
@@ -26,8 +26,8 @@ const BuilderSection = ({
 
   return <section className="main-building-section">
     <div className="information-section">
-      <p>If you&#39;d like to Download PDF </p>
-      <button onClick={handleDownloadCV}><FontAwesomeIcon icon={faDownload} /></button>
+      <p>If you&#39;d like Preview </p>
+      <button onClick={handlePreview}><FontAwesomeIcon icon={faDownload} /></button>
     </div>
     <section className="building-section">
       <AddPersonalInfo
