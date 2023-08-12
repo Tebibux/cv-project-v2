@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import './App.css';
 import { faChevronDown, faPlus, faDownload } from '@fortawesome/free-solid-svg-icons';
-// components
 
+// components
 import Main from './components/Main';
 import { Header } from './components/Header';
 

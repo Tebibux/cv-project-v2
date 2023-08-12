@@ -3,6 +3,7 @@
 	--textColor: #333333;
 	--accentColor: #007bff;
 	--headingColor: #444444;
+	--btnColor: #0724007c;
 }
 
 * {
@@ -17,7 +18,11 @@ body {
 	display: grid;
 	justify-content: center;
 }
+/*
 
+
+
+*/
 .container {
 	margin: 30px auto 0;
 	width: 1200px;
@@ -93,6 +98,8 @@ button {
 
 
 .drop-down-menu {
+	display: grid;
+	place-items: center;
 	width: 100%;
 	background-color: #f9f9f9;
 	padding: 0;
@@ -245,6 +252,7 @@ input[type="date"]:focus {
 }
 
 .save {
+	cursor: pointer;
 	background-color: var(--accentColor);
 	width: calc(100% - 10px);
 	border-radius: 5px;
@@ -334,4 +342,23 @@ input[type="date"]:focus {
 
 .university-name{
 	font-weight: bold;
+}
+
+.btn-add-item{
+	width: 90%;
+	height: 30px;
+	padding: 5px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+	color: white;
+	background-color: var(--btnColor);
+	border-radius: 5px;
+}
+
+.add-additional-item{
+	display: grid;
+	place-items: center;
+	margin: 10px 0;
+	background: var(--btnColor);
 }
