@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-const ItemForm = ({ handleFormSubmit }) => {
+const ItemAddForm = ({ handleFormSubmit }) => {
   return (
     <form className="education-information-list drop-down-menu-list" onSubmit={handleFormSubmit}>
       <div className='list UserEducation'>
@@ -22,10 +22,10 @@ const ItemForm = ({ handleFormSubmit }) => {
         </div>
       </div>
       <div className="add-item">
-        <button type="submit" className="save">Save</button>
+        <button type="submit" className="save">Add</button>
       </div>
     </form>
   );
 };
 
-export default ItemForm;
+export default ItemAddForm;

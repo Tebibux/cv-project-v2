@@ -18,6 +18,7 @@ body {
 	display: grid;
 	justify-content: center;
 }
+
 /*
 
 
@@ -115,6 +116,11 @@ button {
 	box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.2);
 }
 
+/* Edit letter */
+.add-additional-item{
+	width: 100%;
+	background-color: inherit;
+}
 .drop-down-menu-button {
 	display: flex;
 	justify-content: space-between;
@@ -129,7 +135,7 @@ button {
 }
 
 .drop-down-menu-list {
-	background-color: inherit;
+	/* background-color: inherit; */
 	display: block;
 	width: 100%;
 	/* Animation */
@@ -340,11 +346,11 @@ input[type="date"]:focus {
 	padding-right: 10%;
 }
 
-.university-name{
+.university-name {
 	font-weight: bold;
 }
 
-.btn-add-item{
+.btn-add-item {
 	width: 90%;
 	height: 30px;
 	padding: 5px;
@@ -356,9 +362,39 @@ input[type="date"]:focus {
 	border-radius: 5px;
 }
 
-.add-additional-item{
+.add-additional-item {
 	display: grid;
 	place-items: center;
 	margin: 10px 0;
-	background: var(--btnColor);
+}
+
+/* date showing style */
+.date-container {
+	display: flex;
+	align-items: center;
+	color: #555;
+}
+
+.start-date,
+.end-date {
+	font-size: 16px;
+	font-weight: bold;
+	margin: 0 10px;
+}
+
+.date-divider {
+	font-size: 16px;
+	margin: 0 5px;
+}
+
+.list-added-educations{
+	font-size: .8rem;
+}
+
+.item-lists{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
 }

@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import uuid4 from 'uuid4'
-import ItemForm from "./subComponent/ItemForm";
+import ItemAddForm from "./subComponent/ItemAddForm";
+import ListEducation from "./subComponent/ListEducation";
 import EditEducationForm from "./subComponent/EditEducationForm";
 
 const AddEducation = ({
@@ -9,11 +10,15 @@ const AddEducation = ({
   handleEducation,
   faChevronDown,
   isShowEducation,
-  faPlus
+  faPlus,
+  educations,
+  setEducations
 }) => {
-
+  // handle the display of the input form display
   const [showSaveBtn, setShowSaveBtn] = useState(false);
 
+  // handle the display of lists of Education 
+  const [showLists, setShowLists] = useState(false)
   // temp variable for the input box
   const [userEducation, setUserEducation] = useState('');
   const [degree, setDegree] = useState('');
@@ -22,9 +27,30 @@ const AddEducation = ({
   const [userEduDurationYearTo, setUserEduDurationYearTo] = useState('');
   const [docKey, setDocKey] = useState('');
 
+  const showList = () => {
+    setShowLists(!showLists);
+  }
+
 
   const handleAddItem = () => {
     setShowSaveBtn(true);
+  }
+  // addToEducation function will run the when handleSubmit Triggered and also when 
+  // the showSaveBtn state changes
+  const addToEducation = () => {
+    if (!educations.some(edu => edu.docKey === docKey)) {
+      setEducations(prevEducations => [
+        ...prevEducations,
+        {
+          docKey: docKey,
+          filedOfEducation: userEducation,
+          studiedUniversity: userInstitute,
+          studiedDegree: degree,
+          startDate: userEduDurationYearFrom,
+          endDate: userEduDurationYearTo
+        }
+      ]);
+    }
   }
 
   function handleFormSubmit(event) {
@@ -45,6 +71,8 @@ const AddEducation = ({
     event.target.userEduDurationYearFrom.value = '';
     event.target.userEduDurationYearTo.value = '';
 
+
+    addToEducation();
     // after cleaning it will reset to the not showing stage
     setShowSaveBtn(false);
   }
@@ -53,8 +81,10 @@ const AddEducation = ({
   // using the change made in handleFormSubmit
 
   useEffect(() => {
-    console.log(docKey, userEducation, degree, userInstitute, userEduDurationYearFrom, userEduDurationYearTo)
-  }, [userEducation, degree, userInstitute, userEduDurationYearFrom, userEduDurationYearTo, docKey]);
+    // check the length of the array and 
+    // if contains none return else run addToEducation function
+    { educations.length !== 0 ? addToEducation() : null }
+  }, [educations, showSaveBtn]);
 
 
   return <div className="education-section drop-down-menu information-parent">
@@ -62,12 +92,17 @@ const AddEducation = ({
       <span>Education Experience</span><FontAwesomeIcon icon={faChevronDown} />
     </button>
     {isShowEducation && <>
-      {showSaveBtn && <ItemForm handleFormSubmit={handleFormSubmit} />}
-      <button className="add-additional-item save" onClick={handleAddItem}>
-        <FontAwesomeIcon icon={faPlus} /> </button>
+      <div className="add-additional-item">
+        {showSaveBtn && <ItemAddForm handleFormSubmit={handleFormSubmit} />}
+        <button className="add-additional-item save" onClick={handleAddItem}>
+          <FontAwesomeIcon icon={faPlus} /> </button>
+      </div>
+      <button className="list-added-educations drop-down-menu-button" onClick={showList}>
+        <span> List Added Educations</span><FontAwesomeIcon icon={faChevronDown} />
+      </button>
+      {showLists && <ListEducation educations={educations} />}
     </>
     }
-
   </div>;
 }
 

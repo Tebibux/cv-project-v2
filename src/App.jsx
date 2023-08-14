@@ -26,26 +26,8 @@ function App() {
   });
 
   // Object used to hold the education individual data
-
-  const education = {
-    uuid: 123,
-    filedOfEducation: 'Electro Mechanical Engineering',
-    studiedUniversity: 'Yale University',
-    startDate: 'September 2023 E.C',
-    endDate: 'September 2023 E.C'
-  }
-
-  const education2 = {
-    uuid: 321,
-    filedOfEducation: 'Electro Mechanical Engineering',
-    studiedUniversity: 'Yale University',
-    startDate: 'September 2023 E.C',
-    endDate: 'September 2023 E.C'
-  }
-
-
   // array used to hold objects of the Education Experiance
-  const [educations, setEducations] = useState([education, education2]);
+  const [educations, setEducations] = useState([]);
 
 
 
@@ -219,6 +201,7 @@ function App() {
         setGeneralInformation={setGeneralInformation}
         generalInformation={generalInformation}
         educations={educations}
+        setEducations={setEducations}
       />
     </div>
   )
