@@ -398,3 +398,17 @@ input[type="date"]:focus {
 	justify-content: space-between;
 
 }
+
+.edit{
+	width: 20%;
+	margin: 0;
+	padding: 0;
+	border: none;
+	background-color: transparent;
+	color: inherit;
+	cursor: pointer;
+	text-decoration: none;
+	outline: none;
+	box-sizing: border-box;
+	margin-left: auto;
+}

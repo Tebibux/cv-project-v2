@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import uuid4 from 'uuid4'
@@ -16,6 +17,8 @@ const AddEducation = ({
 }) => {
   // handle the display of the input form display
   const [showSaveBtn, setShowSaveBtn] = useState(false);
+  // handle the display of the edit form 
+  const [isEdit, setIsEdit] = useState(false);
 
   // handle the display of lists of Education 
   const [showLists, setShowLists] = useState(false)
@@ -27,13 +30,16 @@ const AddEducation = ({
   const [userEduDurationYearTo, setUserEduDurationYearTo] = useState('');
   const [docKey, setDocKey] = useState('');
 
+  // used to hold the uniq id of the education 
+  const [uniqId, setUniqId] = useState('')
+
+  // use for showing and hiding the list of education 
   const showList = () => {
     setShowLists(!showLists);
   }
 
-
   const handleAddItem = () => {
-    setShowSaveBtn(true);
+    setShowSaveBtn(!showSaveBtn);
   }
   // addToEducation function will run the when handleSubmit Triggered and also when 
   // the showSaveBtn state changes
@@ -76,10 +82,17 @@ const AddEducation = ({
     // after cleaning it will reset to the not showing stage
     setShowSaveBtn(false);
   }
+  // handleEdit takes the doc key and filter out the specific data
+  // make an edit functionality on it
+  const handleEdit = (uniqKey) => {
+    // setIsEdit(!isEdit)
+    console.log(uniqKey)
+    setShowSaveBtn(!showSaveBtn);
+    // setIsEdit(!isEdit)
 
+  }
   // using useEffect the app will rerender the app using the above change
   // using the change made in handleFormSubmit
-
   useEffect(() => {
     // check the length of the array and 
     // if contains none return else run addToEducation function
@@ -94,13 +107,18 @@ const AddEducation = ({
     {isShowEducation && <>
       <div className="add-additional-item">
         {showSaveBtn && <ItemAddForm handleFormSubmit={handleFormSubmit} />}
+        {!isEdit && <EditEducationForm />}
         <button className="add-additional-item save" onClick={handleAddItem}>
           <FontAwesomeIcon icon={faPlus} /> </button>
       </div>
       <button className="list-added-educations drop-down-menu-button" onClick={showList}>
         <span> List Added Educations</span><FontAwesomeIcon icon={faChevronDown} />
       </button>
-      {showLists && <ListEducation educations={educations} />}
+      {showLists && <ListEducation
+        handleEdit={handleEdit}
+        FontAwesomeIcon={FontAwesomeIcon}
+        educations={educations}
+      />}
     </>
     }
   </div>;
