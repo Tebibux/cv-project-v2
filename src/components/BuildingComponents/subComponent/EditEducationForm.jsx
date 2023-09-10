@@ -1,8 +1,13 @@
-const EditEducationForm = () => {
+import ItemAddForm from "./ItemAddForm";
+
+const EditEducationForm = (
+	{ editingEducation,
+		setIsEdit
+	}) => {
 
 	return (
 		<div className="edit-education-form">
-			<h1>Hello</h1>
+			<ItemAddForm editingEducation={editingEducation} setIsEdit={setIsEdit} btnType={Save} />
 		</div>
 	);
 };

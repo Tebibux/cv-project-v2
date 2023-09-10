@@ -18,7 +18,7 @@ const AddEducation = ({
   // handle the display of the input form display
   const [showSaveBtn, setShowSaveBtn] = useState(false);
   // handle the display of the edit form 
-  const [isEdit, setIsEdit] = useState(false);
+  const [isEdit, setIsEdit] = useState(true);
 
   // handle the display of lists of Education 
   const [showLists, setShowLists] = useState(false)
@@ -31,7 +31,7 @@ const AddEducation = ({
   const [docKey, setDocKey] = useState('');
 
   // used to hold the uniq id of the education 
-  const [uniqId, setUniqId] = useState('')
+  const [editingEducation, setEditingEducation] = useState({})
 
   // use for showing and hiding the list of education 
   const showList = () => {
@@ -84,9 +84,10 @@ const AddEducation = ({
   }
   // handleEdit takes the doc key and filter out the specific data
   // make an edit functionality on it
-  const handleEdit = (uniqKey) => {
+  const handleEdit = (education, isEdit) => {
     // setIsEdit(!isEdit)
-    console.log(uniqKey)
+    console.log(education.docKey, isEdit)
+    setEducations(education)
     setShowSaveBtn(!showSaveBtn);
     // setIsEdit(!isEdit)
 
@@ -106,8 +107,9 @@ const AddEducation = ({
     </button>
     {isShowEducation && <>
       <div className="add-additional-item">
-        {showSaveBtn && <ItemAddForm handleFormSubmit={handleFormSubmit} />}
-        {!isEdit && <EditEducationForm />}
+        {showSaveBtn && <ItemAddForm handleFormSubmit={handleFormSubmit} btnType='Add' />}
+        {!isEdit && <EditEducationForm editingEducation={editingEducation} setIsEdit={setIsEdit}
+        />}
         <button className="add-additional-item save" onClick={handleAddItem}>
           <FontAwesomeIcon icon={faPlus} /> </button>
       </div>
@@ -118,6 +120,7 @@ const AddEducation = ({
         handleEdit={handleEdit}
         FontAwesomeIcon={FontAwesomeIcon}
         educations={educations}
+        isEdit={isEdit}
       />}
     </>
     }
