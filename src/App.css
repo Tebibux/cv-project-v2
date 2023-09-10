@@ -3,6 +3,7 @@
 	--textColor: #333333;
 	--accentColor: #007bff;
 	--headingColor: #444444;
+	--btnColor: #0724007c;
 }
 
 * {
@@ -18,6 +19,11 @@ body {
 	justify-content: center;
 }
 
+/*
+
+
+
+*/
 .container {
 	margin: 30px auto 0;
 	width: 1200px;
@@ -93,6 +99,8 @@ button {
 
 
 .drop-down-menu {
+	display: grid;
+	place-items: center;
 	width: 100%;
 	background-color: #f9f9f9;
 	padding: 0;
@@ -108,6 +116,11 @@ button {
 	box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.2);
 }
 
+/* Edit letter */
+.add-additional-item{
+	width: 100%;
+	background-color: inherit;
+}
 .drop-down-menu-button {
 	display: flex;
 	justify-content: space-between;
@@ -122,7 +135,7 @@ button {
 }
 
 .drop-down-menu-list {
-	background-color: inherit;
+	/* background-color: inherit; */
 	display: block;
 	width: 100%;
 	/* Animation */
@@ -245,6 +258,7 @@ input[type="date"]:focus {
 }
 
 .save {
+	cursor: pointer;
 	background-color: var(--accentColor);
 	width: calc(100% - 10px);
 	border-radius: 5px;
@@ -332,6 +346,69 @@ input[type="date"]:focus {
 	padding-right: 10%;
 }
 
-.university-name{
+.university-name {
 	font-weight: bold;
+}
+
+.btn-add-item {
+	width: 90%;
+	height: 30px;
+	padding: 5px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+	color: white;
+	background-color: var(--btnColor);
+	border-radius: 5px;
+}
+
+.add-additional-item {
+	display: grid;
+	place-items: center;
+	margin: 10px 0;
+}
+
+/* date showing style */
+.date-container {
+	display: flex;
+	align-items: center;
+	color: #555;
+}
+
+.start-date,
+.end-date {
+	font-size: 16px;
+	font-weight: bold;
+	margin: 0 10px;
+}
+
+.date-divider {
+	font-size: 16px;
+	margin: 0 5px;
+}
+
+.list-added-educations{
+	font-size: .8rem;
+}
+
+.item-lists{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+}
+
+.edit{
+	width: 20%;
+	margin: 0;
+	padding: 0;
+	border: none;
+	background-color: transparent;
+	color: inherit;
+	cursor: pointer;
+	text-decoration: none;
+	outline: none;
+	box-sizing: border-box;
+	margin-left: auto;
 }

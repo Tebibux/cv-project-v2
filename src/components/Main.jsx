@@ -21,7 +21,8 @@ const Main = ({
   setProfileSelected,
   setGeneralInformation,
   generalInformation,
-  educations
+  educations,
+  setEducations
 }) => {
 
   return <main>
@@ -41,6 +42,8 @@ const Main = ({
       setProfileSelected={setProfileSelected}
       setGeneralInformation={setGeneralInformation}
       generalInformation={generalInformation}
+      educations={educations}
+      setEducations={setEducations}
     />
     <PreviewSection
       profileSelected={profileSelected}

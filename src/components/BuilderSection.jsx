@@ -21,7 +21,9 @@ const BuilderSection = ({
   handlePreview,
   setProfileSelected,
   setGeneralInformation,
-  generalInformation
+  generalInformation,
+  educations,
+  setEducations
 }) => {
 
   return <section className="main-building-section">
@@ -45,6 +47,8 @@ const BuilderSection = ({
         faChevronDown={faChevronDown}
         isShowEducation={isShowEducation}
         faPlus={faPlus}
+        educations={educations}
+        setEducations={setEducations}
       />
       <AddExperiance
         FontAwesomeIcon={FontAwesomeIcon}
